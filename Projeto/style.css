@@ -1,0 +1,500 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: chocolate;
+    overflow: hidden;
+}
+
+/* HEADER*/
+.link {
+    display: flex;
+    width: 80%;
+    height: 60px;
+    align-items: center;
+    margin: auto;
+}
+
+.link nav a {
+    margin-right: 30px;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.4em;
+}
+
+/* ORGANIZANDO O CONTAINER*/
+.container {
+    position: absolute;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 72vw;
+    height: 75vh;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 0 30px 50px burlywood;
+}
+
+.container .slider .item {
+    position: absolute;
+    height: 300px;
+    width: 200px;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 10px;
+    box-shadow: 0 10px 40px #000;
+    background-position: center;
+    background-size: cover;
+    transition: all 0.5s;
+}
+
+/* ORGANIZANDO OS ITENS*/
+
+.slider .item:nth-child(1),
+.slider .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    width: 100%;
+    height: 100%;
+}
+
+.slider .item:nth-child(3) {
+    left: 53%;
+}
+
+.slider .item:nth-child(4) {
+    left: calc(50% + 270px);
+}
+
+.slider .item:nth-child(5) {
+    left: calc(50% + 500px);
+}
+
+.slider .item:nth-child(n + 6) {
+    left: calc(50% + 725px);
+    opacity: 0;
+}
+
+/* ESTILIZANDO A DESCRIÇÃO*/
+.container .slider .item .contant {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 25px;
+    text-align: justify;
+    width: 40%;
+    word-wrap: break-word;
+    display: none;
+}
+
+.container .slider .item:nth-child(2) .contant {
+    display: block;
+}
+
+.container .slider .item .contant .name {
+    font-size: 2.8em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: animar 1s ease-in-out 1 forwards;
+}
+
+.container .slider .item .contant .description {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #fff;
+    opacity: 0;
+    animation: animar 1s ease-in-out 0.3s 1 forwards;
+}
+
+.container .slider .item .contant button {
+    margin-top: 20px;
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animar 1s ease-in-out 0.6s 1 forwards;
+}
+
+/* COLOCANDO EFEITO NO BOTÃO*/
+.container .slider .item .contant button:hover {
+    background-color: goldenrod;
+}
+
+/* COLOCANDO A ANIMAÇÃO*/
+@keyframes animar {
+    from {
+        opacity: 0;
+        filter: blur(33px);
+        transform: translate(0, 100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+
+/* ARROWS*/
+
+.button {
+    position: absolute;
+    width: 50%;
+    text-align: center;
+    bottom: 40px;
+}
+
+.button button {
+    font-size: 2.7em;
+    margin: 0 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.4s;
+}
+
+.button button:hover {
+    opacity: 0.9;
+}
+
+/* RESPONSIVIDADE*/
+
+
+@media screen and (max-width: 756px) {
+    .slider .item:nth-child(3) {
+        left: 63%;
+        height: 260px;
+        width: 180px
+    }
+
+    .slider .item:nth-child(4) {
+        left: calc(50% + 270px);
+        height: 260px;
+        width: 180px
+    }
+
+    .container .slider .item .contant .name {
+        font-size: 2.4em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: animar 1s ease-in-out 1 forwards;
+    }
+}
+
+@media screen and (max-width: 648px) {
+
+    .container .slider .item .contant .name {
+        font-size: 1.9em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: animar 1s ease-in-out 1 forwards;
+    }
+
+    .container .slider .item .contant .description {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #fff;
+        opacity: 0;
+        animation: animar 1s ease-in-out 0.3s 1 forwards;
+    }
+
+    .button {
+        position: absolute;
+        left: 13rem;
+        width: 50%;
+        text-align: center;
+        bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 508px) {
+    .slider .item:nth-child(3) {
+        left: 63%;
+        height: 250px;
+        width: 160px
+    }
+
+    .button {
+        position: absolute;
+        left: 12rem;
+        width: 50%;
+        text-align: center;
+        bottom: 40px;
+    }
+
+    .container .slider .item .contant .name {
+        font-size: 1.7em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: animar 1s ease-in-out 1 forwards;
+    }
+
+    .container .slider .item .contant .description {
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #fff;
+        opacity: 0;
+        animation: animar 1s ease-in-out 0.3s 1 forwards;
+    }
+
+}
+
+@media screen and (max-width: 456px) {
+
+    .link {
+        display: flex;
+        width: 80%;
+        height: 60px;
+        align-items: center;
+        margin: auto;
+        margin-left: 4rem;
+    }
+    
+    .link nav a {
+        margin-right: 30px;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+        font-size: 1.0em;
+    }
+    .button {
+        position: absolute;
+        left: 10rem;
+        width: 50%;
+        text-align: center;
+        bottom: 40px;
+    }
+
+    .container .slider .item .contant .name {
+        font-size: 1.4em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: animar 1s ease-in-out 1 forwards;
+    }
+
+    .container .slider .item .contant .description {
+        margin-top: 20px;
+        font-size: 0.8em;
+        color: #fff;
+        opacity: 0;
+        animation: animar 1s ease-in-out 0.3s 1 forwards;
+    }
+
+    .container .slider .item .contant button {
+        margin-top: 20px;
+        padding: 7px;
+        text-transform: uppercase;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        animation: animar 1s ease-in-out 0.6s 1 forwards;
+    }
+
+    .button button {
+        font-size: 2.3em;
+        margin: 0 10px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.4s;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    
+    .link {
+        display: flex;
+        width: 80%;
+        height: 60px;
+        align-items: center;
+        margin: auto;
+        margin-left: 4rem;
+    }
+    
+    .link nav a {
+        margin-right: 30px;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+        font-size: 1.0em;
+    }
+
+    .slider .item:nth-child(3) {
+        left: 63%;
+        height: 230px;
+        width: 150px
+    }
+
+    .button {
+        position: absolute;
+        left: 8rem;
+        width: 50%;
+        text-align: center;
+        bottom: 40px;
+    }
+
+    .button button {
+        font-size: 2.3em;
+        margin: 0 10px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.4s;
+    }
+
+}
+
+@media screen and (max-width: 390px) {
+
+    .container .slider .item .contant button {
+        margin-top: 20px;
+        padding: 4px;
+        text-transform: uppercase;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        animation: animar 1s ease-in-out 0.6s 1 forwards;
+    }
+
+    .button button {
+        font-size: 1.8em;
+        margin: 0 10px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.4s;
+    }
+
+    .button {
+        position: absolute;
+        left: 10rem;
+        width: 50%;
+        text-align: center;
+        bottom: 40px;
+    }
+}
+
+
+@media screen and (max-width: 376px) {
+ 
+    .link {
+        display: flex;
+        width: 80%;
+        height: 60px;
+        align-items: center;
+        margin: auto;
+        margin-left: 4rem;
+    }
+    
+    .link nav a {
+        margin-right: 30px;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+    .container .slider .item .contant .name {
+        font-size: 1.1em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: animar 1s ease-in-out 1 forwards;
+    }
+
+    .button button {
+        font-size: 2.1em;
+        margin: 0 10px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.4s;
+    }
+
+    .container .slider .item .contant button {
+        margin-top: 20px;
+        padding: 4px;
+        text-transform: uppercase;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        animation: animar 1s ease-in-out 0.6s 1 forwards;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .link {
+        display: flex;
+        width: 80%;
+        height: 60px;
+        align-items: center;
+        margin: auto;
+        margin-left: 4rem;
+    }
+    
+    .link nav a {
+        margin-right: 30px;
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+
+    .button button {
+        font-size: 1.8em;
+        margin: 0 10px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: all 0.4s;
+    }
+
+    .button {
+        position: absolute;
+        left: 9rem;
+        width: 50%;
+        text-align: center;
+        bottom: 40px;
+    }
+
+    .container .slider .item .contant button {
+        margin-top: 20px;
+        padding: 4px;
+        text-transform: uppercase;
+        border-radius: 10px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        animation: animar 1s ease-in-out 0.6s 1 forwards;
+    }
+}
